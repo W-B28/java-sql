@@ -46,6 +46,10 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 * [ ] ***find all customers with postal code 1010. Returns 3 customers***
 
+#### SELECT *
+#### FROM customers
+#### WHERE postal_code = '1010'
+
   <details><summary>hint</summary>
 
   * This can be done with SELECT and WHERE clauses
@@ -56,6 +60,10 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 ```
 
 * [ ] ***find the phone number for the supplier with the id 11. Should be (010) 9984510***
+
+#### SELECT phone
+#### FROM suppliers
+#### WHERE supplier_id = '11'
 
   <details><summary>hint</summary>
 
