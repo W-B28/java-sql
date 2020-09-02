@@ -31,9 +31,9 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 * [ ] ***find all customers that live in London. Returns 6 records***
 
-## SELECT *
-## FROM customers
-## WHERE city = 'London'
+#### SELECT *
+#### FROM customers
+#### WHERE city = 'London'
 
   <details><summary>hint</summary>
 
