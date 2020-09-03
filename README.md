@@ -160,6 +160,11 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 * [ ] ***list orders grouped and ordered by customer company name showing the number of orders per customer company name. _Rattlesnake Canyon Grocery_ should have 18 orders***
 
+#### SELECT c.company_name, 
+#### COUNT(o.customer_id) as thecount 
+#### FROM orders o JOIN customers c ON o.customer_id = c.customer_id 
+#### GROUP BY c.company_name ORDER BY c.company_name
+
   <details><summary>hint</summary>
 
   * This can be done with SELECT, COUNT, JOIN and GROUP BY clauses. Your count should focus on a field in the Orders table, not the Customer table
@@ -172,6 +177,11 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 * [ ] ***list customers by contact name and the number of orders per contact name. Sort the list by the number of orders in descending order. _Jose Pavarotti_ should be at the top with 31 orders followed by _Roland Mendal_ with 30 orders. Last should be _Francisco Chang_ with 1 order***
 
+#### SELECT c.contact_name, 
+#### COUNT(o.customer_id)
+#### FROM orders o JOIN customers c ON o.customer_id = c.customer_id 
+#### GROUP BY c.contact_name ORDER BY 2 DESC
+
   <details><summary>hint</summary>
 
   * This can be done by adding an ORDER BY clause to the previous answer and changing the group by field
@@ -182,6 +192,10 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 ```
 
 * [ ] ***list orders grouped by customer's city showing the number of orders per city. Returns 69 Records with _Aachen_ showing 6 orders and _Albuquerque_ showing 18 orders***
+
+#### SELECT c.city, COUNT(c.city)
+#### FROM orders o JOIN customers c ON o.customer_id = c.customer_id 
+#### GROUP BY c.city ORDER BY c.city
 
   <details><summary>hint</summary>
 
@@ -209,29 +223,29 @@ Below are some empty tables to be used to normalize the database
 * Not all of the cells will contain data in the final solution
 * Feel free to edit these tables as necessary
 
-Table Name:
+Table Name: ## Person Table
 
+|            |    Name    |     City   |     Fenced |            |            |            |            |            |Person ID
+|------------|------------|------------|------------|------------|------------|------------|------------|------------|1
+| 2           |   Jane    |      Y    |       N     |            |            |            |            |            |
+|            |      Bob   |       N     |     N       |            |            |            |            |          |3
+|            |     Sam    |     N       |    Y        |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
+|            |            |            |            |            |            |            |            |            |
+|            |            |            |            |            |            |            |            |            |
+|            |            |            |            |            |            |            |            |            |
+
+Table Name: Pets
+
+|      ID    |     Name   |    Type    |            |            |            |            |            |            |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-
-Table Name:
-
-|            |            |            |            |            |            |            |            |            |
-|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
+|     1      |Ellie       |Dog         |            |            |            |            |            |            |
+|      2     |Joe         |Horse.      |            |            |            |            |            |            |
+|      3     |Ginger      |Dog.        |            |            |            |            |            |            |
+|      4     |Tiger.      |  Cat       |            |            |            |            |            |            |
+|       5    |Ms Kitty.   |    Cat     |            |            |            |            |            |            |
+|       6    |Toby.       |Turtle      |            |            |            |            |            |            |
+|        7   |Bubble.     |Fish.       |            |            |            |            |            |            |
 
 Table Name:
 
