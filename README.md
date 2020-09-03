@@ -76,6 +76,10 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 * [ ] ***list orders descending by the order date. The order with date 1998-05-06 should be at the top***
 
+ #### SELECT * 
+ #### FROM orders
+#### ORDER BY order_date DESC
+
   <details><summary>hint</summary>
 
   * This can be done with SELECT, WHERE, and ORDER BY clauses
@@ -86,6 +90,10 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 ```
 
 * [ ] ***find all suppliers who have names longer than 20 characters. Returns 11 records***
+
+#### SELECT * 
+#### FROM suppliers
+#### WHERE length(company_name) > 20
 
   <details><summary>hint</summary>
 
@@ -98,6 +106,10 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 ```
 
 * [ ] ***find all customers that include the word 'MARKET' in the contact title. Should return 19 records***
+
+#### SELECT * 
+#### FROM customers as c 
+#### WHERE UPPER(c.contact_title) LIKE ('%MARKET%')
 
   <details><summary>hint</summary>
 
@@ -118,6 +130,12 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 * the city is 'Bag End'
 * the postal code is '111'
 * the country is 'Middle Earth'
+
+#### INSERT INTO customers(customer_id, company_name, contact_name, address, city, postal_code, country) VALUES('SHIRE', 'The Shire', 'Bilbo Baggins', '1 Hobbit-Hole', 'Bag End', '111', 'Middle Earth')
+
+
+
+
   <details><summary>hint</summary>
 
   * This can be done with the INSERT INTO clause
@@ -128,6 +146,8 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 ```
 
 * [ ] ***update _Bilbo Baggins_ record so that the postal code changes to _"11122"_***
+
+#### UPDATE customers SET postal_code = '11122' WHERE customer_id = 'SHIRE'
 
   <details><summary>hint</summary>
 
